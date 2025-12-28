@@ -1,0 +1,158 @@
+
+        :root {
+            --gold: #ffcf4d;
+            --flame: #ff4500;
+            --magic-purple: #1a0b2e;
+            --deep-black: #050505;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1a0b2e 0%, #050505 100%);
+            color: #e2d1a3;
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .font-ancient { font-family: 'Uncial Antiqua', serif; }
+        .font-fantasy { font-family: 'Cinzel', serif; }
+
+        /* --- MAGIC STICK (WAND) ROTATION & FLAME --- */
+        .wand-container {
+            position: relative;
+            width: 200px;
+            height: 20px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .wand {
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #3d2b1f 0%, #5d4037 100%);
+            border-radius: 10px;
+            position: relative;
+            transform-origin: center;
+            animation: wandRotate 4s infinite linear;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        @keyframes wandRotate {
+            0% { transform: rotateY(0deg) rotateZ(0deg); }
+            100% { transform: rotateY(360deg) rotateZ(5deg); }
+        }
+
+        .wand-tip {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 20px 5px white, 0 0 40px 10px var(--gold);
+        }
+
+        /* SEARCH ACTIVE STATE: FLAMES EMITTING */
+        .searching .wand-tip::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, var(--flame), transparent);
+            border-radius: 50%;
+            animation: emitFlame 0.5s infinite alternate;
+            filter: blur(5px);
+        }
+
+        @keyframes emitFlame {
+            0% { transform: scale(1) translateY(0); opacity: 0.8; }
+            100% { transform: scale(2.5) translateY(-20px); opacity: 0; }
+        }
+
+        /* --- MAGIC CARPET TAKEOFF --- */
+        .carpet-wrapper {
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .searching .carpet-wrapper {
+            transform: translateY(-50px) scale(1.05) rotateX(10deg);
+            filter: drop-shadow(0 50px 30px rgba(0,0,0,0.9));
+        }
+
+        .magic-carpet {
+            background: #4a0404;
+            background-image: url('https://www.transparenttextures.com/patterns/az-subtle.png');
+            border: 6px double var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            position: relative;
+            animation: carpetHover 4s ease-in-out infinite;
+        }
+
+        @keyframes carpetHover {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* --- FLOATING ELEMENTS --- */
+        .floating-owl {
+            position: absolute;
+            font-size: 3rem;
+            animation: owlFly 15s linear infinite;
+            z-index: 5;
+            opacity: 0.6;
+        }
+
+        @keyframes owlFly {
+            0% { left: -10%; top: 20%; transform: scaleX(1); }
+            45% { transform: scaleX(1); }
+            50% { left: 110%; top: 10%; transform: scaleX(-1); }
+            95% { transform: scaleX(-1); }
+            100% { left: -10%; top: 20%; transform: scaleX(1); }
+        }
+
+        /* --- DOBBY AVATAR --- */
+        .dobby-box {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .speech-bubble {
+            background: #fdf2d5;
+            color: #333;
+            padding: 12px;
+            border-radius: 20px;
+            border: 2px solid var(--gold);
+            font-size: 0.9rem;
+            max-width: 200px;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        /* --- NAVBAR & FOOTER --- */
+        .nav-glass {
+            background: rgba(10, 5, 20, 0.85);
+            border-bottom: 1px solid rgba(255, 207, 77, 0.3);
+            backdrop-filter: blur(12px);
+        }
+
+        .book-card {
+            background: rgba(30, 20, 50, 0.4);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .book-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(255, 207, 77, 0.2);
+        }
+    

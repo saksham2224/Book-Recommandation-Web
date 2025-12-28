@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Arcane Library | Wizard's Book Oracle</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    
+    
+</head>
+<body class="pt-24">
+
+    <!-- Background Owl -->
+    <div class="floating-owl">🦉</div>
+
+    <!-- Navigation -->
+    <nav class="nav-glass fixed top-0 w-full z-[100] px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3 group cursor-pointer">
+            <div class="text-4xl group-hover:rotate-12 transition-transform">📜</div>
+            <span class="font-fantasy text-2xl text-amber-400 tracking-tighter">THE ARCANE LIBRARY</span>
+        </div>
+        <div class="hidden lg:flex gap-10 font-ancient text-lg text-amber-200/70">
+            <a href="#" class="hover:text-amber-400 transition-all hover:tracking-widest">Forbidden Section</a>
+            <a href="#" class="hover:text-amber-400 transition-all hover:tracking-widest">History of Magic</a>
+            <a href="#" class="hover:text-amber-400 transition-all hover:tracking-widest">Great Hall</a>
+        </div>
+        <button class="bg-amber-900/40 border border-amber-600 px-6 py-2 rounded-full font-fantasy text-sm hover:bg-amber-600 hover:text-black transition-all">
+            Enter Vault
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4">
+        
+        <!-- Hero Header -->
+        <header class="text-center mb-16 relative">
+            <h1 class="text-6xl md:text-8xl font-fantasy text-amber-400 mb-4 drop-shadow-[0_0_20px_rgba(255,207,77,0.4)]">
+                Wizard's Oracle
+            </h1>
+            <p class="text-2xl italic font-serif text-amber-100 opacity-60">
+                Speak your heart to the ancient scrolls...
+            </p>
+        </header>
+
+        <!-- Search Area with Carpet and Wand -->
+        <div id="searchRoot" class="max-w-4xl mx-auto mb-24">
+            <!-- Wand Element -->
+            <div class="wand-container mb-8">
+                <div class="wand">
+                    <div class="wand-tip"></div>
+                </div>
+            </div>
+
+            <!-- Magic Carpet -->
+            <div class="carpet-wrapper">
+                <div class="magic-carpet p-8 md:p-12 rounded-lg">
+                    <div class="bg-black/40 p-6 rounded border border-amber-900/30 backdrop-blur-sm">
+                        <textarea 
+                            id="userPrompt"
+                            class="w-full bg-transparent text-2xl text-amber-100 placeholder-amber-900/40 outline-none resize-none h-32 font-serif"
+                            placeholder="I seek a dark tale of shadows, alchemy, and lost kingdoms..."></textarea>
+                        
+                        <div class="flex justify-center mt-6">
+                            <button onclick="triggerMagic()" class="group relative px-12 py-5 bg-gradient-to-b from-amber-500 to-amber-700 text-black font-bold text-2xl font-ancient rounded shadow-[0_0_30px_rgba(255,165,0,0.4)] hover:scale-105 transition-all">
+                                Cast The Revelio Spell ✨
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="hidden pb-20">
+            <div class="flex items-center justify-center gap-4 mb-16">
+                <div class="h-px w-24 bg-amber-600"></div>
+                <h2 class="text-4xl font-fantasy text-amber-400">Summoned Tomes</h2>
+                <div class="h-px w-24 bg-amber-600"></div>
+            </div>
+            
+            <div id="booksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Book Cards Injected Here -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Dobby Assistant -->
+    <div class="dobby-box" onmouseover="toggleDobby(true)" onmouseout="toggleDobby(false)">
+        <div id="dobbySpeech" class="speech-bubble font-serif italic">
+            "Dobby is only wanting to help great Wizard find a book! Press the spell, Sir!"
+        </div>
+        <div class="relative">
+            <div class="absolute -top-2 -right-2 bg-green-500 w-4 h-4 rounded-full border-2 border-black animate-pulse"></div>
+            <img src="image.png" alt="Dobby" class="w-20 h-20 object-contain drop-shadow-[0_0_10px_white] hover:scale-110 transition-transform">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black/90 border-t border-amber-900/50 py-16 text-center">
+        <div class="flex justify-center gap-8 mb-8">
+            <span class="text-4xl opacity-40 hover:opacity-100 cursor-pointer transition-opacity">🧙‍♂️</span>
+            <span class="text-4xl opacity-40 hover:opacity-100 cursor-pointer transition-opacity">⚡</span>
+            <span class="text-4xl opacity-40 hover:opacity-100 cursor-pointer transition-opacity">🌑</span>
+            <span class="text-4xl opacity-40 hover:opacity-100 cursor-pointer transition-opacity">🧹</span>
+        </div>
+        <p class="font-fantasy text-amber-700 tracking-widest text-sm mb-2">BY ORDER OF THE MINISTRY OF MAGIC</p>
+        <p class="text-amber-900 text-xs">Proprietary magic of the Arcane Library. No muggles allowed. © 2025</p>
+    </footer>
+  <script src="script.js"></script>
+    
+</body>
+</html>

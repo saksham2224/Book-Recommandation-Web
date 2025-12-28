@@ -1,0 +1,7 @@
+flask
+flask-cors
+pandas
+chromadb
+langchain-community
+langchain-google-genai
+python-dotenv
